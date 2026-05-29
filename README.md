@@ -39,7 +39,7 @@ DocGen 是一款轻量级办公自动化 Web 工具，上传含占位符的 Word
 
 `ash
 # 克隆项目
-git clone https://github.com/YOUR_USERNAME/docgen.git
+git clone https://github.com/caiwenmin/docgen.git
 cd docgen
 
 # 安装依赖
@@ -118,3 +118,4 @@ docgen/
 ## 📄 License
 
 MIT License — 详见 [LICENSE](LICENSE) 文件
+
