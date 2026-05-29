@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DocGen - 办公自动化批量文档生成器</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="container">
+    <h1>📄 DocGen</h1>
+    <p class="subtitle">模板 + 数据 → 批量生成 Word / Excel 文档</p>
+    <p class="desc">上传含占位符的模板和 Excel/CSV 数据文件，一键批量生成文档并打包下载</p>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Step 1: Upload Template -->
+  <section class="card" id="step-template">
+    <div class="step-badge">1</div>
+    <h2>上传模板文件</h2>
+    <p>支持 Word (.docx) 和 Excel (.xlsx) 模板，占位符使用 {{变量名}} 格式</p>
+    <div class="upload-zone" id="template-zone">
+      <input type="file" id="template-input" accept=".docx,.xlsx,.xls" hidden>
+      <div class="upload-placeholder" id="template-placeholder">
+        <span class="upload-icon">⬆️</span>
+        <span>点击或拖拽上传模板</span>
+      </div>
+      <div class="upload-success" id="template-success" style="display:none">
+        <span class="check">✅</span>
+        <span id="template-name"></span>
+        <span class="tag" id="template-placeholders"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2: Upload Data -->
+  <section class="card" id="step-data" style="display:none">
+    <div class="step-badge">2</div>
+    <h2>上传数据文件</h2>
+    <p>支持 .xlsx / .xls / .csv 格式，列名对应模板占位符</p>
+    <div class="upload-zone" id="data-zone">
+      <input type="file" id="data-input" accept=".xlsx,.xls,.csv" hidden>
+      <div class="upload-placeholder" id="data-placeholder">
+        <span class="upload-icon">📊</span>
+        <span>点击或拖拽上传数据文件</span>
+      </div>
+      <div class="upload-success" id="data-success" style="display:none">
+        <span class="check">✅</span>
+        <span id="data-name"></span>
+        <span class="tag" id="data-count"></span>
+      </div>
+    </div>
+    <div id="data-preview" class="preview-table" style="display:none"></div>
+  </section>
+
+  <!-- Step 3: Actions -->
+  <section class="card" id="step-actions" style="display:none">
+    <div class="step-badge">3</div>
+    <h2>生成文档</h2>
+    <div class="btn-group">
+      <button class="btn btn-outline" id="btn-preview">👁️ 预览（首条数据）</button>
+      <button class="btn btn-primary" id="btn-generate">🚀 批量生成全部</button>
+    </div>
+    <div id="preview-result" style="display:none; margin-top:16px;">
+      <a href="#" id="preview-download" class="btn btn-sm">📥 下载预览文件</a>
+    </div>
+    <div id="generate-result" style="display:none; margin-top:16px;">
+      <div class="success-banner">
+        <span>🎉 生成完成！</span>
+        <span id="gen-count"></span>
+        <a href="#" id="gen-download" class="btn btn-sm">📥 下载全部（ZIP）</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage Guide -->
+  <section class="card guide">
+    <h2>💡 使用说明</h2>
+    <div class="guide-grid">
+      <div class="guide-item">
+        <strong>准备模板</strong>
+        <p>在 Word 或 Excel 中插入占位符，如：<code>{{姓名}}</code>、<code>{{日期}}</code>、<code>{{金额}}</code></p>
+      </div>
+      <div class="guide-item">
+        <strong>准备数据</strong>
+        <p>用 Excel 或 CSV 整理数据，第一行为列名（对应占位符名），每行生成一份文档</p>
+      </div>
+      <div class="guide-item">
+        <strong>批量生成</strong>
+        <p>系统自动将数据填充到模板，每行数据生成独立文档，最终打包 ZIP 下载</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="container">
+  <p>DocGen · 办公自动化批量文档生成器 · 适用于合同、报告、通知、证书等场景</p>
+</footer>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

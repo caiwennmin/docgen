@@ -1,0 +1,28 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.venv/
+venv/
+env/
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# App
+uploads/task_*
+uploads/preview_*
+uploads/tpl_*
+uploads/dat_*
+*.zip
+!sample_data.xlsx
+!sample_template.docx
